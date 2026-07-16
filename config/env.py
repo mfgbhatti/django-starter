@@ -10,7 +10,8 @@ env = environ.Env()
 # base directory path will be from setting file
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
-BASE_DIR = environ.Path(__file__) - 1
+# this is for tree -L 2 i.e. file -> folder -> root
+BASE_DIR = environ.Path(__file__) - 2
 
 
 def env_to_enum(enum_cls, value):
