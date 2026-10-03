@@ -1,0 +1,35 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Set up Python
+        run: uv python install 3.14
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Check for missing migrations
+        working-directory: src
+        env:
+          SECRET_KEY: "django-insecure-github-actions-test-key"
+        run: uv run python manage.py makemigrations --check --dry-run
+
+      - name: Run Django tests
+        working-directory: src
+        env:
+          SECRET_KEY: "django-insecure-github-actions-test-key"
+        run: uv run python manage.py test
