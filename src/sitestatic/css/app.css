@@ -1,0 +1,132 @@
+/* ---------- Brand & Typography ---------- */
+:root {
+  --django-starter-pine: #21654b;
+  --django-starter-pine-dark: #1b332a;
+  --django-starter-pine-tint: #e1eae3;
+  --django-starter-pine-light: #bee6d7;
+  --django-starter-text-color: #17211d;
+  --django-starter-bg-color: #f8f9fa;
+  --django-starter-clay: #e53e3e;
+  --django-starter-white: #ffffff;
+  --django-starter-border: #cfd8d3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--django-starter-text-color);
+  background-color: var(--django-starter-bg-color);
+}
+
+/* ---------- Card (every page is one centred card) ---------- */
+.card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  background-color: var(--django-starter-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.card h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: var(--django-starter-pine-dark);
+}
+.card p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--django-starter-white);
+  background-color: var(--django-starter-pine);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn:hover {
+  background-color: var(--django-starter-pine-dark);
+}
+
+/* ---------- Forms ---------- */
+.field {
+  margin-bottom: 18px;
+}
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--django-starter-border);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 15px;
+}
+.field input:focus {
+  outline: 2px solid var(--django-starter-pine-light);
+  border-color: var(--django-starter-pine);
+}
+.errorlist {
+  margin-top: 6px;
+  list-style: none;
+  font-size: 13px;
+  color: var(--django-starter-clay);
+}
+
+/* ---------- Messages ---------- */
+.messages {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.alert {
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--django-starter-pine-tint);
+}
+.alert-error {
+  color: var(--django-starter-clay);
+  background-color: #fdecec;
+}
+.alert-error .errorlist {
+  margin: 0;
+  color: inherit;
+}
+
+/* ---------- Error pages (403 / 404 / 500) ---------- */
+.card {
+  text-align: center;
+}
+.card form {
+  text-align: left;
+}
+.error-code {
+  font-size: 72px;
+  font-weight: 800;
+  color: var(--django-starter-clay);
+  margin-bottom: 10px;
+}
