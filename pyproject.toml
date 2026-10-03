@@ -1,8 +1,12 @@
 [project]
 name = "django-starter"
-version = "0.0.10"
+version = "0.0.11"
 description = "A clean, opinionated Django starter template for quickly bootstrapping modern Django projects."
 readme = "README.md"
 requires-python = ">=3.14"
 authors = [{ name = "farhan ghani", email = "13787498+mfgbhatti@users.noreply.github.com" }]
-dependencies = ["django>=6.1", "django-environ>=0.14"]
+dependencies = [
+    "django>=6.1",
+    "django-environ>=0.14",
+    "tzdata>=2026.4",
+]

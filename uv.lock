@@ -36,17 +36,19 @@ wheels = [
 
 [[package]]
 name = "django-starter"
-version = "0.0.10"
+version = "0.0.11"
 source = { virtual = "." }
 dependencies = [
     { name = "django" },
     { name = "django-environ" },
+    { name = "tzdata" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=6.1" },
     { name = "django-environ", specifier = ">=0.14" },
+    { name = "tzdata", specifier = ">=2026.4" },
 ]
 
 [[package]]
