@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Log in — django-starter{% endblock %}
+{% block content %}
+    <h1>Log in</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-error" role="alert">{{ form.non_field_errors }}</div>
+        {% endif %}
+        <div class="field">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        <div class="field">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            {{ form.password.errors }}
+        </div>
+        <input type="hidden" name="next" value="{{ next }}">
+        <button class="btn" type="submit">Log in</button>
+    </form>
+{% endblock %}
