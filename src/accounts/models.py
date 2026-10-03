@@ -19,7 +19,16 @@ class BaseUser(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 
+    def clean(self):
+        super().clean()
+        # Runs inside ModelForm validation *before* the uniqueness check, so
+        # "A@x.com" is reported as a duplicate of "a@x.com" instead of
+        # failing later with an IntegrityError.
+        self.email = (self.email or "").strip().lower()
+
     def save(self, *args, **kwargs):
         # Emails are stored lowercase so "A@x.com" and "a@x.com" can't both exist.
-        self.email = self.email.strip().lower()
+        self.email = (self.email or "").strip().lower()
+        if not self.email:
+            raise ValueError("A BaseUser needs an email address.")
         super().save(*args, **kwargs)
