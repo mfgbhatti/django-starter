@@ -1,0 +1,29 @@
+{% load static %}
+{% comment %}
+    Standalone layout for the 403/404/500 pages (deliberately not based on
+    base.html, so it renders with no user or session). Children fill
+    error_title, error_icon, error_code, error_heading and error_message.
+{% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block error_title %}{% endblock %} — Django Starter</title>
+        <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    </head>
+    <body>
+        <main class="card">
+            <div class="error-code">
+                {% block error_code %}{% endblock %}
+            </div>
+            <h1>
+                {% block error_heading %}{% endblock %}
+            </h1>
+            <p>
+                {% block error_message %}{% endblock %}
+            </p>
+            <a href="/" class="btn">Return to Homepage</a>
+        </main>
+    </body>
+</html>

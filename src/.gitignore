@@ -1,0 +1,5 @@
+# django files
+assets/
+db.sqlite3
+db.sqlite3-*
+.env
