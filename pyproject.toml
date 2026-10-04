@@ -1,6 +1,6 @@
 [project]
 name = "django-starter"
-version = "0.0.12"
+version = "0.0.13"
 description = "A clean, opinionated Django starter template for quickly bootstrapping modern Django projects."
 readme = "README.md"
 requires-python = ">=3.14"
